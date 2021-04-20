@@ -83,9 +83,9 @@ function deleteteQoute(req,res) {
     client.query(sqlQuery,safeValues).then(()=> {
         res.redirect(`/favorite-quotes/${id}`)
     }).catch( (error,response)=>{
-        errorHandler(error,response))
+        errorHandler(error,response)
 
-}
+})}
 
 
 function getQoutes(req,res) {
@@ -95,7 +95,6 @@ function getQoutes(req,res) {
         const qoutesTen = data.body.map(
             
             element => {
-                console.log(element);
                 new Newcharacter(element)}
         );
         console.log(qoutesTen)
