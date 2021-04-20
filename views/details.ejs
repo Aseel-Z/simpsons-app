@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('layout/head')%>
+</head>
+<body>
+    <header>
+        <%- include('layout/header')%>
+    </header>
+
+    <main>
+<% details.forEach(element=>{%>
+<div>
+<h2><%= element.character %></h2>
+<p><%= element.quote %></p>
+<img src="<%=element.image%>">
+<form action="/favorite-quotes/<%=element.id%>?_method=PUT" method="post">
+    <input type="text" value="<%= element.quote %>">
+<button id="update_button" type="submit">Update character</button>
+</form>
+<form action="/favorite-quotes/<%=element.id%>?_method=DELETE" method="post">
+<button id="delete_button" type="submit">Delete character</button>
+</form>
+
+</div>
+    <%})%>
+    </main>
+
+    <footer>
+        <%- include('layout/footer')%>
+    </footer>
+</body>
+</html>
